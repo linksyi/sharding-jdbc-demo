@@ -1,0 +1,30 @@
+spring:
+  shardingsphere:
+    datasource:
+      # 定义数据源
+      master0:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.131.131:3306/demo0
+        username: root
+        password: '1qaz@WSX'
+      names: master0
+    sharding:
+      default-database-strategy:
+        inline:
+          algorithm-expression: demo0
+          sharding-column: user_id
+      tables:
+        # 定义逻辑表名
+        user:
+          # 表真实存在的数据节点
+          actual-data-nodes: master0.user$->{0..1}
+          table-strategy:
+            inline:
+              # 真实表名算法
+              algorithm-expression: user$->{id % 2}
+              # 更具某个字段分片
+              sharding-column: id
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*.xml
+  type-aliases-package: com.ljq.demo.springboot.sharding.jdbc.model.entity
