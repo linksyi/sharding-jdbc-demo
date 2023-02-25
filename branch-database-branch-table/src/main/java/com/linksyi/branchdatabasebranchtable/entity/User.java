@@ -1,4 +1,4 @@
-package com.linksyi.notdatabasebranchtable.entity;
+package com.linksyi.branchdatabasebranchtable.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

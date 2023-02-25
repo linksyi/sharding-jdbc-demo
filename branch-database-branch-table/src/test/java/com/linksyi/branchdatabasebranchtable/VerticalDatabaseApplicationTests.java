@@ -1,4 +1,4 @@
-package com.linksyi.notdatabasebranchtable;
+package com.linksyi.branchdatabasebranchtable;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

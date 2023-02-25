@@ -1,13 +1,13 @@
-package com.linksyi.notdatabasebranchtable;
+package com.linksyi.branchdatabasebranchtable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VerticalDatabaseApplication {
+public class BranchDatabaseBranchTableApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VerticalDatabaseApplication.class, args);
+		SpringApplication.run(BranchDatabaseBranchTableApplication.class, args);
 	}
 
 }

@@ -1,7 +1,7 @@
-package com.linksyi.notdatabasebranchtable.mapper;
+package com.linksyi.branchdatabasebranchtable.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.linksyi.notdatabasebranchtable.entity.User;
+import com.linksyi.branchdatabasebranchtable.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,8 +1,8 @@
-package com.linksyi.notdatabasebranchtable.mapper;
+package com.linksyi.branchdatabasebranchtable.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.linksyi.notdatabasebranchtable.entity.User;
+import com.linksyi.branchdatabasebranchtable.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,7 @@ class UserMapperTest {
 
 
     @Test
-    public void testBatchInsert(){
+    public void testBatchSave(){
         for (int i = 0; i < 20; i++) {
             userMapper.insert(buildUser(String.valueOf(i)));
         }
@@ -34,7 +34,7 @@ class UserMapperTest {
 
     @Test
     public void testQueryByIds(){
-        List<Long> ids = List.of(1629129435091374082L, 1629129435091374084L, 1629129433895997441L, 1629129435091374083L);
+        List<Long> ids = List.of(1629416436650782722L, 1629416436780806146L, 1629129433895997441L, 1629129435091374083L);
         List<User> users = userMapper.selectBatchIds(ids);
         users.forEach(System.out::println);
     }
