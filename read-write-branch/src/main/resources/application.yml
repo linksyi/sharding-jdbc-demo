@@ -1,0 +1,72 @@
+spring:
+  shardingsphere:
+    datasource:
+      # 定义数据源
+      master0:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.131.131:3306/demo0
+        username: root
+        password: '1qaz@WSX'
+      master1:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.131.131:3306/demo1
+        username: root
+        password: '1qaz@WSX'
+      slaves0:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.131.132:3306/demo0
+        username: root
+        password: '1qaz@WSX'
+      slaves1:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.131.132:3306/demo1
+        username: root
+        password: '1qaz@WSX'
+      names: master0,master1,slaves0,slaves1
+    sharding:
+      tables:
+        # 定义逻辑表名
+        user_item:
+          actual-data-nodes: master0.user_item0,master1.user_item1
+          database-strategy:
+            inline:
+              algorithm-expression: master$->{id % 2}
+              # 真实业务场景应该用user_id分表，避免笛卡尔积
+              sharding-column: id
+          table-strategy:
+            inline:
+              algorithm-expression: user_item$->{id % 2}
+              # 真实业务场景应该用user_id分表，避免笛卡尔积
+              sharding-column: id
+        # 定义逻辑表名
+        user:
+          # 表真实存在的数据节点规则
+          actual-data-nodes: master0.user0,master1.user1
+          # 分库规则
+          database-strategy:
+            inline:
+              # 分库规则算法
+              algorithm-expression: master$->{id % 2}
+              # 分库字段
+              sharding-column: id
+          # 分表规则
+          table-strategy:
+            inline:
+              # 分表规则算法
+              algorithm-expression: user$->{id % 2}
+              # 分表字段
+              sharding-column: id
+      master-slave-rules:
+        master0 :
+          master-data-source-name: master0
+          slave-data-source-names: slaves0
+        master1:
+          master-data-source-name: master1
+          slave-data-source-names: slaves1
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.ljq.demo.springboot.sharding.jdbc.model.entity

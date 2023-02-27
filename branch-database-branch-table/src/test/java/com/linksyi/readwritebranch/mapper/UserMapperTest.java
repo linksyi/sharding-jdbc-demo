@@ -1,13 +1,10 @@
-package com.linksyi.branchdatabasebranchtable.mapper;
+package com.linksyi.readwritebranch.mapper;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.linksyi.branchdatabasebranchtable.entity.User;
-import com.linksyi.branchdatabasebranchtable.entity.UserItem;
+import com.linksyi.readwritebranch.entity.User;
+import com.linksyi.readwritebranch.entity.UserItem;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.linksyi.branchdatabasebranchtable.entity;
+package com.linksyi.readwritebranch.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

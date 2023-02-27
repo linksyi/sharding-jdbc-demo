@@ -21,6 +21,7 @@
     <modules>
         <module>not-database-branch-table</module>
         <module>branch-database-branch-table</module>
+        <module>read-write-branch</module>
     </modules>
 
     <dependencyManagement>

@@ -1,7 +1,7 @@
-package com.linksyi.branchdatabasebranchtable.mapper;
+package com.linksyi.readwritebranch.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.linksyi.branchdatabasebranchtable.entity.UserItem;
+import com.linksyi.readwritebranch.entity.UserItem;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
